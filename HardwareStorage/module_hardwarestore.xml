@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_hardwarestore" default="compile.module.hardwarestore">
+  <dirname property="module.hardwarestore.basedir" file="${ant.file.module_hardwarestore}"/>
+  
+  <property name="module.jdk.home.hardwarestore" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.hardwarestore" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.hardwarestore" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.hardwarestore" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="hardwarestore.output.dir" value="${module.hardwarestore.basedir}/out/production/HardwareStore"/>
+  <property name="hardwarestore.testoutput.dir" value="${module.hardwarestore.basedir}/out/test/HardwareStore"/>
+  
+  <path id="hardwarestore.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="hardwarestore.module.production.classpath">
+    <path refid="${module.jdk.classpath.hardwarestore}"/>
+    <path refid="library.sqljdbc42.classpath"/>
+  </path>
+  
+  <path id="hardwarestore.runtime.production.module.classpath">
+    <pathelement location="${hardwarestore.output.dir}"/>
+    <path refid="library.sqljdbc42.classpath"/>
+  </path>
+  
+  <path id="hardwarestore.module.classpath">
+    <path refid="${module.jdk.classpath.hardwarestore}"/>
+    <pathelement location="${hardwarestore.output.dir}"/>
+    <path refid="library.sqljdbc42.classpath"/>
+  </path>
+  
+  <path id="hardwarestore.runtime.module.classpath">
+    <pathelement location="${hardwarestore.testoutput.dir}"/>
+    <pathelement location="${hardwarestore.output.dir}"/>
+    <path refid="library.sqljdbc42.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.hardwarestore">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.hardwarestore">
+    <patternset refid="excluded.from.module.hardwarestore"/>
+  </patternset>
+  
+  <path id="hardwarestore.module.sourcepath">
+    <dirset dir="${module.hardwarestore.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.hardwarestore" depends="compile.module.hardwarestore.production,compile.module.hardwarestore.tests" description="Compile module HardwareStore"/>
+  
+  <target name="compile.module.hardwarestore.production" depends="register.custom.compilers" description="Compile module HardwareStore; production classes">
+    <mkdir dir="${hardwarestore.output.dir}"/>
+    <javac2 destdir="${hardwarestore.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.hardwarestore}/javac">
+      <compilerarg line="${compiler.args.hardwarestore}"/>
+      <bootclasspath refid="hardwarestore.module.bootclasspath"/>
+      <classpath refid="hardwarestore.module.production.classpath"/>
+      <src refid="hardwarestore.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.hardwarestore"/>
+    </javac2>
+    
+    <copy todir="${hardwarestore.output.dir}">
+      <fileset dir="${module.hardwarestore.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.hardwarestore.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.hardwarestore.tests" depends="register.custom.compilers,compile.module.hardwarestore.production" description="compile module HardwareStore; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.hardwarestore" description="cleanup module">
+    <delete dir="${hardwarestore.output.dir}"/>
+    <delete dir="${hardwarestore.testoutput.dir}"/>
+  </target>
+</project>

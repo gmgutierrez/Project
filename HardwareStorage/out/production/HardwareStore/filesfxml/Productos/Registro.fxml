@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<GridPane alignment = "center" hgap = "10" vgap= "10" xmlns="http://javafx.com/javafx/8.0.112"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.uni.fiis.hardware.Controller" styleClass="root">
+    <stylesheets>
+        <URL value="@../../SteelSheet/Productos/Registro.css" />
+    </stylesheets>
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <VBox spacing="10">
+        <Text id="crearProd" text="Registrar Producto"
+              GridPane.columnIndex="1" GridPane.rowIndex="1"
+              GridPane.columnSpan="2"/>
+        <HBox spacing="40" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <VBox spacing="10">
+                <HBox spacing="22">
+                    <VBox spacing="10">
+                        <Label text="ID de Producto:"/>
+                        <TextField fx:id="idProd" text=""/>
+                    </VBox>
+                    <VBox spacing="10">
+                        <Label text="Tipo Producto:"/>
+                        <ComboBox fx:id="comboProd" prefWidth="160">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Prod001" />
+                                    <String fx:value="Prod002" />
+                                    <String fx:value="Prod003" />
+                                    <String fx:value="Prod004" />
+                                    <String fx:value="Prod005" />
+                                </FXCollections>
+                            </items>
+                            <value>
+                                <String fx:value="Prod001"/>
+                            </value>
+                        </ComboBox>
+                    </VBox>
+                </HBox>
+                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                    <GridPane alignment="CENTER" hgap = "10" vgap= "10" >
+                        <Label text="Proveedor:"
+                               GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="comboProdProv" GridPane.columnIndex="11" GridPane.rowIndex="1" prefWidth="160">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Prov001" />
+                                    <String fx:value="Prov002" />
+                                    <String fx:value="Prov003" />
+                                    <String fx:value="Prov004" />
+                                    <String fx:value="Prov005" />
+                                </FXCollections>
+                            </items>
+                            <value>
+                                <String fx:value="Prov001"/>
+                            </value>
+                        </ComboBox>
+                    </GridPane>
+                </HBox>
+
+                <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                    <VBox spacing="10">
+                        <Label text="Marca" GridPane.halignment="LEFT"
+                               GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                        <ComboBox fx:id="comboProdMarca" GridPane.columnIndex="1" GridPane.rowIndex="8" prefWidth="160">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Marca001" />
+                                    <String fx:value="Marca002" />
+                                    <String fx:value="Marca003" />
+                                    <String fx:value="Marca004" />
+                                    <String fx:value="Marca005" />
+                                </FXCollections>
+                            </items>
+                            <value>
+                                <String fx:value="Marca001"/>
+                            </value>
+                        </ComboBox>
+                    </VBox>
+
+                    <VBox spacing="10">
+                        <Label text="Modelo" GridPane.halignment="LEFT"
+                               GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                        <ComboBox fx:id="comboProdModelo" GridPane.columnIndex="4" GridPane.rowIndex="8" prefWidth="160">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Model001" />
+                                    <String fx:value="Model002" />
+                                    <String fx:value="Model003" />
+                                    <String fx:value="Model004" />
+                                    <String fx:value="Model005" />
+                                </FXCollections>
+                            </items>
+                            <value>
+                                <String fx:value="Model001"/>
+                            </value>
+                        </ComboBox>
+                    </VBox>
+
+                </HBox>
+            </VBox>
+            <VBox spacing="10">
+                <Label text="Imagen del Product:"/>
+                <ImageView fx:id="imgProd" fitHeight="112.5" fitWidth="150">
+                    <image>
+                        <Image url="@../../Images/user.jpeg"/>
+                    </image>
+                </ImageView>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <VBox spacing="10">
+                <Label text="Precio de Compra:"
+                       GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                <TextField fx:id="precCompra" text=""
+                           GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+            </VBox>
+            <VBox spacing="10">
+                <Label text="Precio de Venta:"
+                       GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                <TextField fx:id="precVenta" text="" GridPane.columnSpan="1"
+                           GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+            </VBox>
+            <VBox spacing="10">
+                <Label text="Unidad de Medida:"
+                       GridPane.columnIndex="4" GridPane.rowIndex="9"/>
+                <TextField fx:id="unitMedidaProd" text="" GridPane.columnSpan="1"
+                           GridPane.columnIndex="4" GridPane.rowIndex="10"/>
+            </VBox>
+            <VBox spacing="10">
+                <Label text="Stock del Producto:"
+                       GridPane.columnIndex="7" GridPane.rowIndex="9"/>
+                <TextField fx:id="stockProd" text="" GridPane.columnSpan="1"
+                           GridPane.columnIndex="7" GridPane.rowIndex="10"/>
+            </VBox>
+        </HBox>
+        <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="11">
+            <Label text="Descripción:" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+            <TextArea fx:id="descripProd" text="" prefWidth="320" prefHeight="100"
+                      GridPane.columnIndex="4" GridPane.rowIndex="11"
+            />
+        </HBox>
+        <HBox spacing="10" alignment="bottom_center"
+              GridPane.columnIndex="1" GridPane.rowIndex="13">
+            <Button id="saveProd" text="Guardar"
+                    onAction="#handleSubmitProdBtnSave"
+                    GridPane.columnIndex="4" GridPane.rowIndex="13"/>
+            <Button id="backProd" text="Volver"
+                    onAction="#handleSubmitProdBtnBack"
+                    GridPane.columnIndex="7" GridPane.rowIndex="13"/>
+        </HBox>
+    </VBox>
+
+</GridPane>

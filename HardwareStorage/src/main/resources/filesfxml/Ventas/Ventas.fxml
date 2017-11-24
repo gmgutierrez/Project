@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<GridPane alignment="TOP_CENTER" hgap = "10" vgap= "10" xmlns="http://javafx.com/javafx/8.0.112"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.uni.fiis.hardware.Controller" styleClass="root">
+    <stylesheets>
+        <URL value="@../../SteelSheet/Ventas/Ventas.css" />
+    </stylesheets>
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <TabPane prefWidth="1200" tabClosingPolicy="UNAVAILABLE" fx:id="tabPane" GridPane.rowIndex="0" GridPane.columnSpan="10">
+        <tabs>
+            <Tab text="Cotización">
+                <GridPane alignment = "center" hgap = "10" vgap= "10">
+                    <VBox spacing="10">
+                        <Text id="selecCli" text="Seleccionar Cliente"
+                              GridPane.columnIndex="1" GridPane.rowIndex="1"
+                              GridPane.columnSpan="2"/>
+                        <ScrollPane GridPane.columnIndex="1" GridPane.rowIndex="2" >
+                            <TableView fx:id="detalleCliQuote" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                <columns>
+                                    <TableColumn text="Codigo">
+                                    </TableColumn>
+                                    <TableColumn text="Tipo Docmto.">
+                                    </TableColumn>
+                                    <TableColumn text="Nro. Docmto.">
+                                    </TableColumn>
+                                    <TableColumn text="Nombre Cliente">
+                                    </TableColumn>
+                                    <TableColumn text="Estado">
+                                    </TableColumn>
+                                    <TableColumn text="Monto Compras">
+                                    </TableColumn>
+                                    <TableColumn text="Fecha Registro">
+                                    </TableColumn>
+                                    <TableColumn text="Fecha Ultima Compra">
+                                    </TableColumn>
+                                </columns>
+                            </TableView>
+                        </ScrollPane>
+
+                        <HBox spacing="20" alignment="bottom_center"
+                              GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <Button id="newQuote" text="Crear Cotización"
+                                    onAction="#handleSubmitQuoteBtnNew"
+                                    GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+                            <Button id="searchCli" text="Buscar"
+                                    onAction="#handleSubmitCliBtnSearch"
+                                    GridPane.columnIndex="6" GridPane.rowIndex="5"/>
+                            <Button id="listQuote" text="Consultar Cotización"
+                                    onAction="#handleSubmitQuoteBtnlist"
+                                    GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                            <Button id="newCli" text="Nuevo Cliente"
+                                    onAction="#handleSubmitCliBtnNew"
+                                    GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                            <Button id="backSales" text="Volver"
+                                    onAction="#handleSubmitSalesBtnBack"
+                                    GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                        </HBox>
+                    </VBox>
+                </GridPane>
+
+            </Tab>
+            <Tab text="Orden de Entrega">
+                <GridPane alignment = "center" hgap = "10" vgap= "10">
+                    <GridPane alignment = "center" hgap = "10" vgap= "10">
+                        <VBox spacing="10">
+                            <Text id="selecCli" text="Seleccionar Cliente"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1"
+                                  GridPane.columnSpan="2"/>
+                            <ScrollPane GridPane.columnIndex="1" GridPane.rowIndex="2" >
+                                <TableView fx:id="detalleCliDeliOrder" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                    <columns>
+                                        <TableColumn text="Codigo">
+                                        </TableColumn>
+                                        <TableColumn text="Tipo Docmto.">
+                                        </TableColumn>
+                                        <TableColumn text="Nro. Docmto.">
+                                        </TableColumn>
+                                        <TableColumn text="Nombre Cliente">
+                                        </TableColumn>
+                                        <TableColumn text="Estado">
+                                        </TableColumn>
+                                        <TableColumn text="Monto Compras">
+                                        </TableColumn>
+                                        <TableColumn text="Fecha Registro">
+                                        </TableColumn>
+                                        <TableColumn text="Fecha Ultima Compra">
+                                        </TableColumn>
+                                    </columns>
+                                </TableView>
+                            </ScrollPane>
+
+                            <HBox spacing="20" alignment="bottom_center"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                <Button id="newDelOrder" text="Crear Orden de Entrega"
+                                        onAction="#handleSubmitQuoteBtnNew"
+                                        GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+                                <Button id="searchCli" text="Buscar"
+                                        onAction="#handleSubmitCliBtnSearch"
+                                        GridPane.columnIndex="6" GridPane.rowIndex="5"/>
+                                <Button id="listQuote" text="Consultar Órdenes de Entrega"
+                                        onAction="#handleSubmitQuoteBtnlist"
+                                        GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                                <Button id="newCli" text="Nuevo Cliente"
+                                        onAction="#handleSubmitCliBtnNew"
+                                        GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                                <Button id="backSales" text="Volver"
+                                        onAction="#handleSubmitSalesBtnBack"
+                                        GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                            </HBox>
+                        </VBox>
+                    </GridPane>
+                </GridPane>
+            </Tab>
+        </tabs>
+    </TabPane>
+
+</GridPane>

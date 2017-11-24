@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.HPos?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<GridPane alignment = "center" hgap = "10" vgap= "10" xmlns="http://javafx.com/javafx/8.0.112"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.uni.fiis.hardware.Controller" styleClass="root">
+    <stylesheets>
+        <URL value="@../../SteelSheet/Clientes/Registro.css" />
+    </stylesheets>
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <Text id="crearCli" text="Registrar Nuevo Cliente"
+          GridPane.columnIndex="1" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+
+    <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <VBox spacing="10" >
+            <HBox spacing="30">
+                <VBox spacing="10">
+                    <Label text="Código de Cliente:"/>
+                    <TextField fx:id="codCli" text=""/>
+                </VBox>
+                <VBox spacing="10">
+                    <Label text="Nombre del Cliente:"/>
+                    <TextField fx:id="nameCli" text=""  prefWidth="320"/>
+                </VBox>
+            </HBox>
+            <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.columnSpan="10">
+                <GridPane alignment="CENTER" hgap = "10" vgap= "10" >
+                    <Label text="Compañía / Empresa:" GridPane.halignment="LEFT"
+                           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="company" text="" GridPane.halignment="RIGHT" prefWidth="320"
+                               GridPane.columnIndex="6" GridPane.rowIndex="1"/>
+                </GridPane>
+            </HBox>
+            <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.columnSpan="10">
+                <GridPane alignment="center" hgap = "10" vgap= "10">
+                    <Label text="Dirección de Envío:    " GridPane.halignment="LEFT"
+                           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="direccCli" text="" GridPane.halignment="RIGHT" prefWidth="320"
+                               GridPane.columnIndex="6" GridPane.rowIndex="1"/>
+                </GridPane>
+            </HBox>
+        </VBox>
+        <VBox spacing="10">
+            <Label text="Foto del Cliente:"/>
+            <ImageView fx:id="imgCli" fitHeight="112.5" fitWidth="150">
+                <image>
+                    <Image url="@../../Images/user.jpeg"/>
+                </image>
+            </ImageView>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <VBox spacing="10">
+            <Label text="Provincia:"
+                   GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+            <TextField fx:id="provCli" text=""
+                       GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        </VBox>
+        <VBox spacing="10">
+            <Label text="Departamento:"
+                   GridPane.columnIndex="4" GridPane.rowIndex="7"/>
+            <TextField fx:id="departCli" text="" GridPane.columnSpan="1"
+                       GridPane.columnIndex="4" GridPane.rowIndex="8"/>
+        </VBox>
+        <VBox spacing="10">
+            <Label text="Código ZIP:"
+                   GridPane.columnIndex="7" GridPane.rowIndex="7"/>
+            <TextField fx:id="zipCodeCli" text="" GridPane.columnSpan="1"
+                       GridPane.columnIndex="7" GridPane.rowIndex="8"/>
+        </VBox>
+        <VBox spacing="10">
+            <Label text="País:"
+                   GridPane.columnIndex="10" GridPane.rowIndex="7"/>
+            <TextField fx:id="countryCli" text="" GridPane.columnSpan="1"
+                       GridPane.columnIndex="10" GridPane.rowIndex="8"/>
+        </VBox>
+    </HBox>
+    <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="9">
+        <VBox spacing="10">
+            <Label text="Email:"/>
+            <TextField fx:id="emailCli" text="" GridPane.columnSpan="4" prefWidth="320"
+                       GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+        </VBox>
+        <VBox spacing="10">
+            <Label text="Nro. de Celular:"
+                   GridPane.columnIndex="7" GridPane.rowIndex="9"/>
+            <TextField fx:id="nroCelCli" text="" GridPane.columnSpan="4" prefWidth="320"
+                       GridPane.columnIndex="7" GridPane.rowIndex="10"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="12">
+        <Label text="Observaciones:"/>
+        <TextArea fx:id="observCli" text="" prefWidth="320" prefHeight="100"
+                   GridPane.columnSpan="4"/>
+    </HBox>
+
+    <HBox spacing="20" alignment="bottom_center"
+          GridPane.columnIndex="1" GridPane.rowIndex="13">
+        <Button id="searchCli" text="Guardar"
+                onAction="#handleSubmitCliBtnSave"
+                GridPane.columnIndex="4" GridPane.rowIndex="13"/>
+        <Button id="backCli" text="Cancelar"
+                onAction="#handleSubmitCliBtnBack"
+                GridPane.columnIndex="7" GridPane.rowIndex="13"/>
+    </HBox>
+
+    <!-- Comentario -->
+
+</GridPane>

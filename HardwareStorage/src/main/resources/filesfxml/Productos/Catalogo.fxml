@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<GridPane alignment = "center" hgap = "10" vgap= "10" xmlns="http://javafx.com/javafx/8.0.112"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.uni.fiis.hardware.Controller" styleClass="root">
+    <stylesheets>
+        <URL value="@../../SteelSheet/Productos/Catalogo.css" />
+    </stylesheets>
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <VBox spacing="15">
+        <Text id="catalogoProd" text="Catalogo de Productos"
+              GridPane.columnIndex="1" GridPane.rowIndex="1"
+              GridPane.columnSpan="2"/>
+        <HBox spacing="155">
+            <Label id="detalleProd" text="Lista de Productos"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"
+                   GridPane.columnSpan="2"/>
+
+            <Label id="nuevoProd" text="Detalle Producto"
+                   GridPane.columnIndex="8" GridPane.rowIndex="1"
+                   GridPane.columnSpan="2"/>
+        </HBox>
+        <HBox spacing="50">
+            <VBox spacing="10">
+                <ScrollPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <TableView fx:id="detalleProd" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <columns>
+                            <TableColumn text="ID de Producto" fx:id="codProducto">
+                            </TableColumn>
+                            <TableColumn text="Tipo Producto" fx:id="tipoProducto">
+                            </TableColumn>
+                            <TableColumn text="Marca" fx:id="marca">
+                            </TableColumn>
+                            <TableColumn text="Modelo" fx:id="modelo">
+                            </TableColumn>
+                            <TableColumn text="Unidad de Medida"  fx:id="unidadMedida">
+                            </TableColumn>
+                            <TableColumn text="Precio de Venta(por unid. med.)" fx:id="precioVenta">
+                            </TableColumn>
+                            <TableColumn text="Stock" fx:id="stock">
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </ScrollPane>
+            </VBox>
+
+            <VBox spacing="10">
+                <HBox spacing="40" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <VBox spacing="10">
+                        <HBox spacing="22">
+                            <VBox spacing="10">
+                                <Label text="ID de Producto:"/>
+                                <TextField fx:id="idProd" text=""/>
+                            </VBox>
+                            <VBox spacing="10">
+                                <Label text="Tipo Producto:"/>
+                                <TextField fx:id="tipoProd" text=""/>
+                            </VBox>
+                        </HBox>
+                        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                            <GridPane alignment="CENTER" hgap = "10" vgap= "10" >
+                                <Label text="Proveedor:"
+                                       GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <TextField fx:id="ProdProv" GridPane.columnIndex="11" GridPane.rowIndex="1"/>
+                            </GridPane>
+                        </HBox>
+                        <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                            <VBox spacing="10">
+                                <Label text="Marca:" GridPane.halignment="LEFT"
+                                       GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                                <TextField fx:id="ProdMarca"  text="" GridPane.columnIndex="1" GridPane.rowIndex="8">
+
+                                </TextField>
+                            </VBox>
+
+                            <VBox spacing="10">
+                                <Label text="Modelo:" GridPane.halignment="LEFT"
+                                       GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                                <TextField fx:id="ProdModelo" text="" GridPane.columnIndex="4" GridPane.rowIndex="8">
+                                </TextField>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                    <VBox spacing="10">
+                        <Label text="Imagen del Product:"/>
+                        <ImageView fx:id="imgProd" fitHeight="112.5" fitWidth="150">
+                            <image>
+                                <Image url="@../../Images/user.jpeg"/>
+                            </image>
+                        </ImageView>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                    <VBox spacing="10">
+                        <Label text="Precio de Compra:"
+                               GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                        <TextField fx:id="precCompra" text=""
+                                   GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+                    </VBox>
+                    <VBox spacing="10">
+                        <Label text="Precio de Venta:"
+                               GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                        <TextField fx:id="precVenta" text="" GridPane.columnSpan="1"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+                    </VBox>
+                    </HBox>
+                <HBox spacing="20">
+                    <VBox spacing="10">
+                        <Label text="Unidad de Medida:"
+                               GridPane.columnIndex="4" GridPane.rowIndex="9"/>
+                        <TextField fx:id="unitMedidaProd" text="" GridPane.columnSpan="1"
+                                   GridPane.columnIndex="4" GridPane.rowIndex="10"/>
+                    </VBox>
+                    <VBox spacing="10">
+                        <Label text="Stock del Producto:"
+                               GridPane.columnIndex="7" GridPane.rowIndex="9"/>
+                        <TextField fx:id="stockProd" text="" GridPane.columnSpan="1"
+                                   GridPane.columnIndex="7" GridPane.rowIndex="10"/>
+                    </VBox>
+                </HBox>
+                <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                    <Label text="Descripción:" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+                    <TextArea fx:id="descripProd" text="" prefWidth="320" prefHeight="100"
+                              GridPane.columnIndex="4" GridPane.rowIndex="11"/>
+                </HBox>
+                <HBox spacing="10" alignment="bottom_center"
+                      GridPane.columnIndex="1" GridPane.rowIndex="13">
+                    <Button id="newProd" text="Modificar"
+                            onAction="#handleSubmitProdBtnUpdate"
+                            GridPane.columnIndex="4" GridPane.rowIndex="13"/>
+                    <Button id="delProd" text="Dar de Baja"
+                            onAction="#handleSubmitProdBtnDelete"
+                            GridPane.columnIndex="7" GridPane.rowIndex="13"/>
+                </HBox>
+            </VBox>
+        </HBox>
+        <HBox spacing="10" alignment="bottom_center"
+              GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button id="newProd" text="Agregar"
+                    onAction="#handleSubmitProdBtnNew"
+                    GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+            <Button id="searchProd" text="Buscar"
+                    onAction="#handleSubmitProdBtnSearch"
+                    GridPane.columnIndex="6" GridPane.rowIndex="5"/>
+            <Button id="backProd" text="Volver"
+                    onAction="#handleSubmitProdBtnBack"
+                    GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+        </HBox>
+    </VBox>
+
+
+</GridPane>

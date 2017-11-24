@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import java.net.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<GridPane alignment = "center" hgap = "10" vgap= "10" xmlns="http://javafx.com/javafx/8.0.112"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.uni.fiis.hardware.Controller" styleClass="root">
+    <stylesheets>
+        <URL value="@../SteelSheet/Inicio.css" />
+    </stylesheets>
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <Text id="mainMenu" text="Menú Principal"
+          GridPane.columnIndex="1" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+
+    <VBox spacing="20" alignment="bottom_center"
+          GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <Button id="goProv" text="Proveedores"
+                onAction="#handleSubmitgoProv"
+                GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+        <Button id="goProd" text="Productos"
+                onAction="#handleSubmitgoProd"
+                GridPane.columnIndex="6" GridPane.rowIndex="5"/>
+        <Button id="goCli" text="Clientes"
+                onAction="#handleSubmitgoCli"
+                GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+    </VBox>
+
+</GridPane>

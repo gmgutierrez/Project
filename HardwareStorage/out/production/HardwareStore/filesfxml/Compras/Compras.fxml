@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<GridPane alignment="TOP_CENTER" hgap = "10" vgap= "10" xmlns="http://javafx.com/javafx/8.0.112"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.uni.fiis.hardware.Controller" styleClass="root">
+    <stylesheets>
+        <URL value="@../../SteelSheet/Ventas/Ventas.css" />
+    </stylesheets>
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <TabPane prefWidth="1200" tabClosingPolicy="UNAVAILABLE" fx:id="tabPane" GridPane.rowIndex="0" GridPane.columnSpan="10">
+        <Tab text="Orden de Pedido">
+            <GridPane alignment = "center" hgap = "10" vgap= "10">
+                <VBox spacing="10">
+                    <Text id="selecProv" text="Seleccionar Proveedor"
+                          GridPane.columnIndex="1" GridPane.rowIndex="1"
+                          GridPane.columnSpan="2"/>
+                    <ScrollPane GridPane.columnIndex="1" GridPane.rowIndex="2" >
+                        <TableView fx:id="detalleProvPurchOrder" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <columns>
+                                <TableColumn text="Codigo">
+                                </TableColumn>
+                                <TableColumn text="RUC">
+                                </TableColumn>
+                                <TableColumn text="Nombre Empresa">
+                                </TableColumn>
+                                <TableColumn text="Estado">
+                                </TableColumn>
+                                <TableColumn text="Monto Total Comprado">
+                                </TableColumn>
+                                <TableColumn text="Fecha Registro">
+                                </TableColumn>
+                                <TableColumn text="Fecha Ultima Compra">
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                    </ScrollPane>
+
+                    <HBox spacing="20" alignment="bottom_center"
+                          GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <Button id="newPurchOrder" text="Crear Orden de Compra"
+                                onAction="#handleSubmitPurchBtnNew"
+                                GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+                        <Button id="searchProv" text="Buscar"
+                                onAction="#handleSubmitProvBtnSearch"
+                                GridPane.columnIndex="6" GridPane.rowIndex="5"/>
+                        <Button id="listPurchOrder" text="Consultar Órdenes de Compra"
+                                onAction="#handleSubmitPurchOrderBtnlist"
+                                GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                        <Button id="newProv" text="Nuevo Proveedor"
+                                onAction="#handleSubmitProvBtnNew"
+                                GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                        <Button id="backPurch" text="Volver"
+                                onAction="#handleSubmitPurchBtnBack"
+                                GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                    </HBox>
+                </VBox>
+            </GridPane>
+        </Tab>
+        <Tab text="Orden de Entrega">
+            <GridPane alignment = "center" hgap = "10" vgap= "10">
+                <VBox spacing="10">
+                    <Text id="selecProv" text="Seleccionar Proveedor"
+                          GridPane.columnIndex="1" GridPane.rowIndex="1"
+                          GridPane.columnSpan="2"/>
+                    <ScrollPane GridPane.columnIndex="1" GridPane.rowIndex="2" >
+                        <TableView fx:id="detalleProvPurchDeliv" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <columns>
+                                <TableColumn text="Codigo">
+                                </TableColumn>
+                                <TableColumn text="RUC">
+                                </TableColumn>
+                                <TableColumn text="Nombre Empresa">
+                                </TableColumn>
+                                <TableColumn text="Estado">
+                                </TableColumn>
+                                <TableColumn text="Monto Total Comprado">
+                                </TableColumn>
+                                <TableColumn text="Fecha Registro">
+                                </TableColumn>
+                                <TableColumn text="Fecha Ultima Compra">
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                    </ScrollPane>
+
+                    <HBox spacing="20" alignment="bottom_center"
+                          GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <Button id="newPurchDel" text="Crear Orden de Entrega"
+                                onAction="#handleSubmitPurchDelBtnNew"
+                                GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+                        <Button id="searchProv" text="Buscar"
+                                onAction="#handleSubmitProvBtnSearch"
+                                GridPane.columnIndex="6" GridPane.rowIndex="5"/>
+                        <Button id="listPurchDeliv" text="Consultar Compras a Entregar"
+                                onAction="#handleSubmitPurchDelivBtnlist"
+                                GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                        <Button id="newProv" text="Nuevo Proveedor"
+                                onAction="#handleSubmitProvBtnNew"
+                                GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                        <Button id="backPurchDeliv" text="Volver"
+                                onAction="#handleSubmitPurchDelivBtnBack"
+                                GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+                    </HBox>
+                </VBox>
+            </GridPane>
+
+        </Tab>
+    </TabPane>
+
+</GridPane>

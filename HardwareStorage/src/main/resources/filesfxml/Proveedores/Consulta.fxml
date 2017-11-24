@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<GridPane alignment = "center" hgap = "10" vgap= "10" xmlns="http://javafx.com/javafx/8.0.112"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.uni.fiis.hardware.Controller" styleClass="root">
+    <stylesheets>
+        <URL value="@../../SteelSheet/Proveedores/Consulta.css" />
+    </stylesheets>
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <VBox spacing="15">
+        <Text id="consultaProv" text="Consulta de Proveedores"
+              GridPane.columnIndex="1" GridPane.rowIndex="0"
+              GridPane.columnSpan="2"/>
+        <HBox spacing="155">
+            <Label id="detalleProv" text="Lista de Proveedores"
+                  GridPane.columnIndex="1" GridPane.rowIndex="1"
+                  GridPane.columnSpan="2"/>
+            <VBox></VBox>
+            <VBox></VBox>
+            <Label id="crearProveedor" text="Detalle Proveedor"
+                  GridPane.columnIndex="8" GridPane.rowIndex="1"
+                  GridPane.columnSpan="2"/>
+        </HBox>
+        <HBox spacing="20">
+            <VBox spacing="10">
+                <ScrollPane GridPane.columnIndex="1" GridPane.rowIndex="2" >
+                    <TableView fx:id="detalleProv" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <columns>
+                            <TableColumn text="Codigo" fx:id="codProveedor">
+                            </TableColumn>
+                            <TableColumn text="RUC" fx:id="rucProveedor">
+                            </TableColumn>
+                            <TableColumn text="Nombre Empresa" fx:id="nomProveedor">
+                            </TableColumn>
+                            <TableColumn text="Monto Total Comprado"  fx:id="montoProveedor">
+                            </TableColumn>
+                            <TableColumn text="Fecha Registro" fx:id="fechReg">
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </ScrollPane>
+            </VBox>
+
+            <VBox spacing="10">
+                <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <VBox spacing="10">
+                        <HBox spacing="22">
+                            <VBox spacing="10">
+                                <Label text="Código de Proveedor:"/>
+                                <TextField fx:id="codProv" text=""/>
+                            </VBox>
+                            <VBox spacing="10">
+                                <Label text="RUC:"/>
+                                <TextField fx:id="RUCProv" text=""  prefWidth="320"/>
+                            </VBox>
+                        </HBox>
+
+                        <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.columnSpan="10">
+                            <GridPane alignment="center" hgap = "10" vgap= "10">
+                                <Label text="Nombre de la Compañía:" GridPane.halignment="LEFT"
+                                       GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <TextField fx:id="nameProv" text="" GridPane.halignment="RIGHT" prefWidth="320"
+                                           GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                                <Label text="Dirección de Local:    " GridPane.halignment="LEFT"
+                                       GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                <TextField fx:id="direccProv" text="" GridPane.halignment="RIGHT" prefWidth="320"
+                                           GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                            </GridPane>
+                        </HBox>
+                    </VBox>
+                    <VBox spacing="10">
+                        <Label text="Foto del Proveedor:"/>
+                        <ImageView fx:id="imgProv" fitHeight="112.5" fitWidth="150">
+                            <image>
+                                <Image url="@../../Images/user.jpeg"/>
+                            </image>
+                        </ImageView>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                    <VBox spacing="10">
+                        <Label text="Provincia:"
+                               GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                        <TextField fx:id="provProv" text=""
+                                   GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+                    </VBox>
+                    <VBox spacing="10">
+                        <Label text="Departamento:"
+                               GridPane.columnIndex="4" GridPane.rowIndex="7"/>
+                        <TextField fx:id="departProv" text="" GridPane.columnSpan="1"
+                                   GridPane.columnIndex="4" GridPane.rowIndex="8"/>
+                    </VBox>
+                    <VBox spacing="10">
+                        <Label text="Código ZIP:"
+                               GridPane.columnIndex="7" GridPane.rowIndex="7"/>
+                        <TextField fx:id="zipCodeProv" text="" GridPane.columnSpan="1"
+                                   GridPane.columnIndex="7" GridPane.rowIndex="8"/>
+                    </VBox>
+                    <VBox spacing="10">
+                        <Label text="País:"
+                               GridPane.columnIndex="10" GridPane.rowIndex="7"/>
+                        <TextField fx:id="countryProv" text="" GridPane.columnSpan="1"
+                                   GridPane.columnIndex="10" GridPane.rowIndex="8"/>
+                    </VBox>
+                </HBox>
+                <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                    <VBox spacing="10">
+                        <Label text="Email:"/>
+                        <TextField fx:id="emailProv" text="" GridPane.columnSpan="4" prefWidth="320"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+                    </VBox>
+                    <VBox spacing="10">
+                        <Label text="Nro. de Celular:"
+                               GridPane.columnIndex="7" GridPane.rowIndex="9"/>
+                        <TextField fx:id="nroCelProv" text="" GridPane.columnSpan="4" prefWidth="320"
+                                   GridPane.columnIndex="7" GridPane.rowIndex="10"/>
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                    <Label text="Lista de Productos Asociados:"/>
+                    <ListView fx:id="listProdProv" GridPane.columnSpan="2" GridPane.rowSpan="5" prefHeight="200" prefWidth="320">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Producto1" />
+                                <String fx:value="Producto2" />
+                                <String fx:value="Producto3" />
+                                <String fx:value="Producto4" />
+                                <String fx:value="Producto5" />
+                            </FXCollections>
+                        </items>
+                    </ListView>
+                </VBox>
+
+                <HBox spacing="10" alignment="bottom_center"
+                      GridPane.columnIndex="1" GridPane.rowIndex="13">
+                    <Button id="newProv" text="Modificar"
+                            onAction="#handleSubmitProvBtnUpdate"
+                            GridPane.columnIndex="4" GridPane.rowIndex="13"/>
+                    <Button id="delProv" text="Dar de Baja"
+                            onAction="#handleSubmitProvBtnDelete"
+                            GridPane.columnIndex="7" GridPane.rowIndex="13"/>
+                </HBox>
+            </VBox>
+        </HBox>
+        <HBox spacing="10" alignment="bottom_center"
+              GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button id="newProv" text="Agregar"
+                    onAction="#handleSubmitProvBtnNew"
+                    GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+            <Button id="searchProv" text="Buscar"
+                    onAction="#handleSubmitProvBtnSearch"
+                    GridPane.columnIndex="6" GridPane.rowIndex="5"/>
+            <Button id="backProv" text="Volver"
+                    onAction="#handleSubmitProvBtnBack"
+                    GridPane.columnIndex="9" GridPane.rowIndex="5"/>
+        </HBox>
+    </VBox>
+
+
+</GridPane>
